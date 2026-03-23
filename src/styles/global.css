@@ -74,3 +74,9 @@ html[data-theme="dark"] {
 :target {
   scroll-margin-block: 1rem;
 }
+
+/* 인용구 따옴표 디자인 강제 제거 */
+blockquote p::before,
+blockquote p::after {
+  content: none !important;
+}
