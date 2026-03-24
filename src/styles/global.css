@@ -81,13 +81,29 @@ blockquote p::after {
   content: none !important;
 }
 
-.prose a {
-  text-decoration: none !important;
-  border-bottom: none !important;
+
+/* 인용구 따옴표 디자인 강제 제거 (이건 그대로 유지) */
+blockquote p::before,
+blockquote p::after {
+  content: none !important;
 }
 
-/* 마우스 올렸을 때(PC)만 깔끔한 실선 나오게 설정 */
-.prose a:hover {
+/* 🔥 점선 밑줄 완.전.박.멸 (초강력 저격 버전) 🔥 */
+main article#article a,
+.prose a,
+.prose ul li a {
+  text-decoration: none !important;
+  text-decoration-line: none !important;
+  border-bottom: none !important;
+  background-image: none !important; /* 가짜 밑줄 방어 */
+}
+
+/* 마우스 올렸을 때만 깔끔한 실선 */
+main article#article a:hover,
+.prose a:hover,
+.prose ul li a:hover {
   text-decoration: underline !important;
+  text-decoration-line: underline !important;
   text-decoration-style: solid !important;
+  text-underline-offset: 6px; /* 밑줄을 글씨에서 살짝 띄워줌 */
 }
