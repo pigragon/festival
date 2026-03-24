@@ -141,18 +141,29 @@ main article#article a:hover,
   font-size: 0.97rem;
 }
 
-.app-prose blockquote:has(p:only-child) {
+/* 하이라이트 박스 - 단락 하나짜리 blockquote */
+.app-prose blockquote:not(:has(ul)) {
   background-color: transparent;
   border-left: 3px solid var(--accent);
   border-radius: 0;
-  padding: 0.5rem 1.25rem;
+  padding: 0.6rem 1.25rem;
   margin: 1.5rem 0;
 }
 
-.app-prose blockquote:has(p:only-child) p {
+.app-prose blockquote:not(:has(ul)) p {
   font-size: 1.05rem;
   font-weight: 500;
   opacity: 0.85;
+  margin-bottom: 0;
+}
+
+/* 브리핑 박스 - ul 리스트를 포함한 blockquote */
+.app-prose blockquote:has(ul) {
+  background-color: color-mix(in srgb, var(--accent) 6%, transparent);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 6px 6px 0;
+  padding: 1rem 1.25rem;
+  margin: 1.8rem 0;
 }
 
 .app-prose hr {
