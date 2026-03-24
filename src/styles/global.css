@@ -80,3 +80,14 @@ blockquote p::before,
 blockquote p::after {
   content: none !important;
 }
+
+.prose a {
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+
+/* 마우스 올렸을 때(PC)만 깔끔한 실선 나오게 설정 */
+.prose a:hover {
+  text-decoration: underline !important;
+  text-decoration-style: solid !important;
+}
