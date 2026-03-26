@@ -14,6 +14,12 @@ import { slugifyStr } from "@/utils/slugify";
 import IconChevronLeft from "@/assets/icons/IconChevronLeft.svg";
 import IconChevronRight from "@/assets/icons/IconChevronRight.svg";
 import { SITE } from "@/config";
+import { getCollection } from "astro:content";
+import getSortedPosts from "@utils/getSortedPosts";
+const { post } = Astro.props;
+const posts = await getCollection("blog");
+const sortedPosts = getSortedPosts(posts);
+const recentPosts = sortedPosts.filter(p => p.slug !== post.slug).slice(0, 4);
 
 type Props = {
   post: CollectionEntry<"blog">;
@@ -113,6 +119,25 @@ const nextPost =
     >
       <Content />
     </article>
+
+    <div class="mt-12 border-t border-skin-line pt-8">
+      <h2 class="text-2xl font-semibold tracking-wide text-skin-base">또 다른 스몰토크 주제들</h2>
+      <ul class="mt-6 flex flex-col gap-4">
+        {
+          recentPosts.map(recent => (
+            <li class="flex items-start gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="mt-1 h-5 w-5 min-w-[1.25rem] text-skin-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+              <a
+                href={`/posts/${recent.slug}/`}
+                class="text-lg hover:text-skin-accent decoration-dashed underline-offset-4 hover:underline"
+              >
+                {recent.data.title}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
 
     <hr class="my-8 border-dashed" />
 
