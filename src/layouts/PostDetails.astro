@@ -14,7 +14,7 @@ import { slugifyStr } from "@/utils/slugify";
 import IconChevronLeft from "@/assets/icons/IconChevronLeft.svg";
 import IconChevronRight from "@/assets/icons/IconChevronRight.svg";
 import { SITE } from "@/config";
-import getSortedPosts from "@utils/getSortedPosts"; // 👈 추가된 부분
+import getSortedPosts from "@/utils/getSortedPosts";
 
 type Props = {
   post: CollectionEntry<"blog">;
@@ -25,7 +25,7 @@ const { post, posts } = Astro.props; // 👈 여기서 post와 posts를 한 번�
 
 // 👇 받아온 posts 데이터를 활용해 최근 글 4개를 뽑아냅니다.
 const sortedPosts = getSortedPosts(posts);
-const recentPosts = sortedPosts.filter(p => p.slug !== post.slug).slice(0, 4);
+const recentPosts = sortedPosts.filter((p: CollectionEntry<"blog">) => p.id !== post.id).slice(0, 4);
 
 const {
   title,
@@ -119,15 +119,15 @@ const nextPost =
       <Content />
     </article>
 
-    <div class="mt-12 border-t border-skin-line pt-8">
+<div class="mt-12 border-t border-skin-line pt-8">
       <h2 class="text-2xl font-semibold tracking-wide text-skin-base">또 다른 스몰토크 주제들</h2>
       <ul class="mt-6 flex flex-col gap-4">
         {
-          recentPosts.map(recent => (
+          recentPosts.map((recent: CollectionEntry<"blog">) => (
             <li class="flex items-start gap-2">
               <svg xmlns="http://www.w3.org/2000/svg" class="mt-1 h-5 w-5 min-w-[1.25rem] text-skin-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
               <a
-                href={`/posts/${recent.slug}/`}
+                href={`/posts/${recent.id}/`}
                 class="text-lg hover:text-skin-accent decoration-dashed underline-offset-4 hover:underline"
               >
                 {recent.data.title}
