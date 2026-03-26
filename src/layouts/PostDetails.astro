@@ -14,19 +14,18 @@ import { slugifyStr } from "@/utils/slugify";
 import IconChevronLeft from "@/assets/icons/IconChevronLeft.svg";
 import IconChevronRight from "@/assets/icons/IconChevronRight.svg";
 import { SITE } from "@/config";
-import { getCollection } from "astro:content";
-import getSortedPosts from "@utils/getSortedPosts";
-const { post } = Astro.props;
-const posts = await getCollection("blog");
-const sortedPosts = getSortedPosts(posts);
-const recentPosts = sortedPosts.filter(p => p.slug !== post.slug).slice(0, 4);
+import getSortedPosts from "@utils/getSortedPosts"; // 👈 추가된 부분
 
 type Props = {
   post: CollectionEntry<"blog">;
   posts: CollectionEntry<"blog">[];
 };
 
-const { post, posts } = Astro.props;
+const { post, posts } = Astro.props; // 👈 여기서 post와 posts를 한 번만 깔끔하게 받아옵니다.
+
+// 👇 받아온 posts 데이터를 활용해 최근 글 4개를 뽑아냅니다.
+const sortedPosts = getSortedPosts(posts);
+const recentPosts = sortedPosts.filter(p => p.slug !== post.slug).slice(0, 4);
 
 const {
   title,
