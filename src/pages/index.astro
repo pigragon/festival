@@ -82,7 +82,7 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
     {
       recentPosts.length > 0 && (
         <section id="recent-posts" class="pt-12 pb-6">
-          <h2 class="text-2xl font-semibold tracking-wide" style="color: var(--accent);">최신 이슈</h2>
+          <h2 class="text-2xl font-semibold tracking-wide" style="color: var(--accent);">축제 </h2>
           <ul>
             {recentPosts.map(
               (data, index) =>
@@ -95,7 +95,7 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 
     <div class="my-8 text-center">
       <LinkButton href="/posts/">
-        전체 이슈 보기
+        전체 축제 보기
         <IconArrowRight class="inline-block rtl:-rotate-180" />
       </LinkButton>
     </div>
