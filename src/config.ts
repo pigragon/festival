@@ -3,7 +3,7 @@ export const SITE = {
   author: "inkind",
   profile: "",
   desc: "일상 속 놓치기 쉬운 정보를 친절하게 챙겨드립니다.",
-  title: "inkind.lab 일상",
+  title: "inkind.lab 축제",
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
   postPerIndex: 8,
