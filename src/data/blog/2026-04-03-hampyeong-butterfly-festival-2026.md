@@ -2,7 +2,7 @@
 title: 함평나비대축제 2026 아름다운 비상 꿈꾸는 봄날의 여정
 pubDatetime: 2026-04-03T23:42:00+09:00
 description: 전라남도 함평에서 펼쳐지는 함평나비대축제 2026, 화려한 나비와 꽃이 어우러진 꿈같은 봄날의 소풍을 경험하고 생명의 아름다움을 만끽하는 특별한 시간을 선사합니다.
-ogImage: /images/2026-04-03-hampyeong-butterfly-festival-2026.jpg
+ogImage: https://life.inkind.kr/images/2026-04-03-hampyeong-butterfly-festival-2026.jpg
 tags:
   - 국내여행
   - 전라남도
